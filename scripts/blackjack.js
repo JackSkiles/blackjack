@@ -82,12 +82,18 @@ function dealCards() {
     const dealerCard = document.createElement('img');
     const playerCard2 = document.createElement('img');
     const dealerCard2 = document.createElement('img');
-    playerCard.setAttribute('src', deck[50].source);
-    playerCard2.setAttribute('src', deck[0].source);
+    const randomCard1 = Math.floor((Math.random() * 52));
+    const randomCard2 = Math.floor((Math.random() * 52));
+    const randomCard3 = Math.floor((Math.random() * 52));
+    const randomCard4 = Math.floor((Math.random() * 52));
+    playerCard.setAttribute('src', deck[randomCard1].source);
+    deck.splice(randomCard1, 1);
+    console.log(deck)
+    playerCard2.setAttribute('src', deck[randomCard2].source);
     playerCard.setAttribute('class', 'card')
     playerCard2.setAttribute('class', 'card')
-    dealerCard.setAttribute('src', 'JPEG/5H.jpg');
-    dealerCard2.setAttribute('src', 'JPEG/9C.jpg');
+    dealerCard.setAttribute('src', deck[randomCard3].source);
+    dealerCard2.setAttribute('src', deck[randomCard4].source);
     dealerCard.setAttribute('class', 'card')
     dealerCard2.setAttribute('class', 'card')
     playerHand.appendChild(playerCard);
