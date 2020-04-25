@@ -88,12 +88,14 @@ function dealCards() {
     const randomCard4 = Math.floor((Math.random() * 52));
     playerCard.setAttribute('src', deck[randomCard1].source);
     deck.splice(randomCard1, 1);
-    console.log(deck)
     playerCard2.setAttribute('src', deck[randomCard2].source);
+    deck.splice(randomCard2, 1);
     playerCard.setAttribute('class', 'card')
     playerCard2.setAttribute('class', 'card')
     dealerCard.setAttribute('src', deck[randomCard3].source);
+    deck.splice(randomCard3, 1);
     dealerCard2.setAttribute('src', deck[randomCard4].source);
+    deck.splice(randomCard4, 1);
     dealerCard.setAttribute('class', 'card')
     dealerCard2.setAttribute('class', 'card')
     playerHand.appendChild(playerCard);
