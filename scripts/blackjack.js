@@ -82,9 +82,11 @@ let hand2 = [];
 
 let playerScore = 0;
 
+let win = false;
+
 function dealPlayer() {
     let dealerScore = 0;
-    if (playerScore < 20 && dealerScore < 20) {
+    if (win != true) {
         if (hand1.length <= 5) {
             const playerCard = document.createElement('img');        
             const playerCard2 = document.createElement('img');
@@ -115,7 +117,7 @@ function dealPlayer() {
 
 let dealerScore = 0;
 function dealer() {
-    if (playerScore < 20 && dealerScore < 20) {
+    if (win != true) {
         if (hand2.length <= 5) {
             const dealerCard = document.createElement('img');
             const dealerCard2 = document.createElement('img');
