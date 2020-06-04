@@ -77,6 +77,9 @@ const hitButton = document.getElementById('hit-button');
 const playerHand = document.getElementById('player-hand');
 const dealerHand = document.getElementById('dealer-hand');
 
+const scoreTally1 = document.getElementById('player-points2');
+const scoreTally2 = document.getElementById('dealer-points2');
+
 let hand1 = [];
 let hand2 = [];
 
@@ -84,62 +87,124 @@ let playerScore = 0;
 
 let win = false;
 
+let playerWin = false;
+let dealerWin = false;
+
 function dealPlayer() {
-    let dealerScore = 0;
-    if (win != true) {
-        if (hand1.length <= 5) {
+    if (playerScore >= 50) {
+        playerWin = true;
+        win = true;
+        alert("congratulations, you win!");
+        location.reload();
+    }
+    if(win === false){
+            playerHand.innerHTML = "";
+            scoreTally1.innerHTML = "";
             const playerCard = document.createElement('img');        
             const playerCard2 = document.createElement('img');
+            const playerCard3 = document.createElement('img');        
+            const playerCard4 = document.createElement('img');
+            const playerCard5 = document.createElement('img');
             const randomCard1 = Math.floor((Math.random() * deck.length));
+            const randomCard2 = Math.floor((Math.random() * deck.length));
+            const randomCard3 = Math.floor((Math.random() * deck.length));
+            const randomCard4 = Math.floor((Math.random() * deck.length));
+            const randomCard5 = Math.floor((Math.random() * deck.length));
             playerScore += deck[randomCard1].point;
             console.log(playerScore);
             playerCard.setAttribute('class', 'card')
             playerCard.setAttribute('src', deck[randomCard1].source);
             let card1 = deck.splice(randomCard1, 1);
             hand1.push(card1);
-            const randomCard2 = Math.floor((Math.random() * deck.length));
             playerCard2.setAttribute('class', 'card')
             playerCard2.setAttribute('src', deck[randomCard2].source);
             let card2 = deck.splice(randomCard2, 1);
             hand1.push(card2);
             playerScore += deck[randomCard2].point;
+            console.log(playerScore);
+            playerCard3.setAttribute('class', 'card')
+            playerCard3.setAttribute('src', deck[randomCard3].source);
+            let card3 = deck.splice(randomCard3, 1);
+            hand1.push(card3);
+            playerScore += deck[randomCard3].point;
+            playerCard4.setAttribute('class', 'card')
+            playerCard4.setAttribute('src', deck[randomCard4].source);
+            let card4 = deck.splice(randomCard4, 1);
+            hand1.push(card4);
+            playerScore += deck[randomCard4].point;
+            playerCard5.setAttribute('class', 'card')
+            playerCard5.setAttribute('src', deck[randomCard5].source);
+            let card5 = deck.splice(randomCard5, 1);
+            hand1.push(card5);
+            playerScore += deck[randomCard5].point;
             let stringScore = playerScore.toString();
+            const score = document.createTextNode(stringScore);
             console.log(stringScore);
             playerHand.appendChild(playerCard);
             playerHand.appendChild(playerCard2);
-        }
-        else {
-            return null;
-        }
+            playerHand.appendChild(playerCard3);
+            playerHand.appendChild(playerCard4);
+            playerHand.appendChild(playerCard5);
+            scoreTally1.appendChild(score);
     }
 
 }
 
 let dealerScore = 0;
 function dealer() {
-    if (win != true) {
-        if (hand2.length <= 5) {
+    if (dealerScore >= 50 && playerWin === false) {
+        dealerWin = true;
+        win = true;
+        alert("You lose! Try again.");
+        location.reload();
+    }
+    if (win === false) {
+            dealerHand.innerHTML = "";
+            scoreTally2.innerHTML = "";
             const dealerCard = document.createElement('img');
             const dealerCard2 = document.createElement('img');
-            const randomCard3 = Math.floor((Math.random() * deck.length));
+            const dealerCard3 = document.createElement('img');
+            const dealerCard4 = document.createElement('img');
+            const dealerCard5 = document.createElement('img');
+            const randomCard = Math.floor((Math.random() * deck.length));
             dealerCard.setAttribute('class', 'card')
-            dealerCard.setAttribute('src', deck[randomCard3].source);
+            dealerCard.setAttribute('src', deck[randomCard].source);
+            let card1 = deck.splice(randomCard, 1);
+            hand2.push(card1);
+            const randomCard2 = Math.floor((Math.random() * deck.length));
+            dealerCard2.setAttribute('class', 'card')
+            dealerCard2.setAttribute('src', deck[randomCard2].source);
+            let card2 = deck.splice(randomCard2, 1);
+            hand2.push(card2);
+            const randomCard3 = Math.floor((Math.random() * deck.length));
+            dealerCard3.setAttribute('class', 'card')
+            dealerCard3.setAttribute('src', deck[randomCard3].source);
             let card3 = deck.splice(randomCard3, 1);
             hand2.push(card3);
             const randomCard4 = Math.floor((Math.random() * deck.length));
-            dealerCard2.setAttribute('class', 'card')
-            dealerCard2.setAttribute('src', deck[randomCard4].source);
+            dealerCard4.setAttribute('class', 'card')
+            dealerCard4.setAttribute('src', deck[randomCard4].source);
             let card4 = deck.splice(randomCard4, 1);
             hand2.push(card4);
+            const randomCard5 = Math.floor((Math.random() * deck.length));
+            dealerCard5.setAttribute('class', 'card')
+            dealerCard5.setAttribute('src', deck[randomCard5].source);
+            let card5 = deck.splice(randomCard5, 1);
+            hand2.push(card5);
+            dealerScore += deck[randomCard].point;
+            dealerScore += deck[randomCard2].point;
             dealerScore += deck[randomCard3].point;
             dealerScore += deck[randomCard4].point;
+            dealerScore += deck[randomCard5].point;
+            let stringScore = playerScore.toString();
+            const score = document.createTextNode(stringScore);
             console.log(dealerScore);
             dealerHand.appendChild(dealerCard);
             dealerHand.appendChild(dealerCard2);
-        }
-        else {
-            return null;
-        }
+            dealerHand.appendChild(dealerCard3);
+            dealerHand.appendChild(dealerCard4);
+            dealerHand.appendChild(dealerCard5);
+            scoreTally2.appendChild(score);
     }
 }
 
