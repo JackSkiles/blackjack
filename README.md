@@ -15,4 +15,7 @@ Here is where the fun part starts. My understanding of blackjack is very limited
 
 Whovever reaches the max score first wins, and when you clear the end of game alert the game resets. 
 
+![chrome_2020-06-20_10-53-55](https://user-images.githubusercontent.com/62663652/85204727-667d5980-b2e4-11ea-9778-c42f36274bf1.png)
+
+
 Essentially it is a luck based game with minimal strategy. Have fun and good luck!
